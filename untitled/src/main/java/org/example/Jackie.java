@@ -3,6 +3,7 @@ package org.example;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Jackie {
@@ -57,5 +58,19 @@ public class Jackie {
         return stats.get(index)[0];
     }
 
-    publi
+    public HashMap<Integer, Integer> evtizedek(){
+        HashMap<Integer, Integer> evtized = new HashMap<>();
+
+        for(Integer[] stat : stats){
+            int decade = (stat[0] / 10) * 10;
+            if(evtized.containsKey(decade)){
+                evtized.put(decade, evtized.get(decade) + stat[2]);
+            }
+            else{
+                evtized.put(decade, stat[2]);
+            }
+        }
+
+        return evtized;
+    }
 }

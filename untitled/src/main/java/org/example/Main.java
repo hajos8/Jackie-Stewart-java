@@ -24,6 +24,13 @@ public class Main {
 
         System.out.println("4. feladat: " + handler.legtobbVerseny());
 
+        //5. feladat
+
+        System.out.println("5. feladat: ");
+        for(Integer evtized : handler.evtizedek().keySet()){
+            System.out.println(evtized + "-es évek: " + handler.evtizedek().get(evtized) + " megnyert verseny");
+        }
+
 
     }
 }

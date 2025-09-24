@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -72,5 +73,51 @@ public class Jackie {
         }
 
         return evtized;
+    }
+
+    public void createHTML(String path) {
+        try {
+            FileWriter writer = new FileWriter(path);
+
+            StringBuilder content = new StringBuilder();
+            
+            content.append("<!DOCTYPE html>\n");
+            content.append("<html lang=\"en\">\n");
+            content.append("<head></head>\n");
+            content.append("<style>td{border:1px solid black}</style>\n");
+
+            content.append("<body>\n");
+
+            content.append("<h1>Jackie Stewart</h1>\n");
+
+            content.append("<table>\n");
+
+            for (Integer[] stat : stats) {
+                content.append("<tr>");
+                content.append("<td>");
+                content.append(stat[0]);
+                content.append("</td>");
+                content.append("<td>");
+                content.append(stat[1]);
+                content.append("</td>");
+                content.append("<td>");
+                content.append(stat[2]);
+                content.append("</td>");
+                content.append("</tr>\n");
+            }
+            
+            content.append("</table>\n");
+
+            content.append("</body>\n");
+            content.append("</html>\n");
+
+            writer.write(String.valueOf(content));
+            writer.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
     }
 }

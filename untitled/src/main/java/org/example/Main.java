@@ -31,6 +31,13 @@ public class Main {
             System.out.println(evtized + "-es évek: " + handler.evtizedek().get(evtized) + " megnyert verseny");
         }
 
+        //6. feladat
+
+        String filename = "Jackie.html";
+
+        System.out.println("6. feladat: " + filename);
+        handler.createHTML(filename);
+
 
     }
 }
